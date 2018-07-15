@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    $links = \App\Link::all();
+
+    return view('welcome', ['links' => $links]);
+});
